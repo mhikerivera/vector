@@ -1,0 +1,65 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+A = np.array([10, 5])
+B = np.array([20, -10])
+C = np.array([-4, 10])
+D = np.array([5, 14])
+E = np.array([4, -5])
+print('Vector A is', A)
+print('Vector B is', B)
+print('Vector C is', C)
+print('Vector D is', D)
+print('Vector E is', E)
+print('---------------------------------')
+
+Addition = np.add(A, B)
+Subtraction = np.subtract(Addition, E)
+print('ADDITION AND SUBTRACTION')
+print('Vector A + Vector B is equal to', Addition,
+      '\nthen subtracting it to Vector E is equal to', Subtraction)
+print('---------------------------------')
+
+Multiplication = np.multiply(A, C)
+Division = np.divide (Multiplication, B)
+print("MULTIPLICATION AND DIVISION")
+print('Vector A * Vector C is equal to', Multiplication,
+      '\nthen dividing it to Vector B is equal to', Division)
+print('---------------------------------')
+
+Squaring = np.square(A)
+Square_root = np.sqrt(A)
+print('SQUARING AND SQUARE ROOT')
+print('The square of Vector A is', Squaring,
+      '\nThe squared root of Vector A is',Square_root)
+print('---------------------------------')
+
+Summation = np.sum(B)
+print('The summation of Vector B is', Summation)
+print('---------------------------------')
+
+plt.title('Vectors')
+plt.xlim(-50,50)
+plt.ylim((-50,50))
+
+plt.scatter(A[0], A[1], label='A', c='black')
+plt.scatter(B[0], B[1], label='B', c='green')
+plt.scatter(C[0], D[1], label='C', c='navy')
+plt.scatter(D[0], D[1], label='D', c='cyan')
+plt.scatter(E[0], E[1], label='E', c='red')
+
+plt.quiver(0, 0, A[0], A[1], angles='xy', scale_units='xy', scale=1, color='blue')
+plt.quiver(A[0], A[1], B[0], B[1], angles='xy', scale_units='xy', scale=1, color='red')
+F = A+B
+plt.quiver(0, 0, F[0], F[1], angles='xy', scale_units='xy', scale=1, color='yellow')
+
+R_mag = np.sqrt(np.sum(A**2+B**2))
+rise = F[1]
+run = F[0]
+slope = rise/run
+print("Slope is", slope)
+
+plt.grid()
+plt.legend()
+plt.show()
